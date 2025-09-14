@@ -642,13 +642,13 @@ float t = hyperspace_transition.x;
 // float t = 1.0;
 // float t = 0.0;
 // float t = mod(time, 3.0);
-// float t = time;
 
 mat3 getCameraRotationmatrix(){
 	float r = smoothstep(0.0, 1.0, 1.0 - t);
 	r = 1.0 - r * r;
 	r = r * 3.141592 / 2.0;
-	r = time;
+	// Uncomment to spin constantly
+	// r = time;
 	return rotationMatrix3D(normalize(vec3(0.0, 1.0, 0.0)), r);
 }
 
