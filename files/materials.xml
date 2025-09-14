@@ -1,0 +1,13 @@
+<Materials>
+    <CellData
+        tags="[box2d],[matter_eater_ignore_list],[indestructible],[sunbaby_ignore_list]"
+        name="hyperdimensional_manifold"
+        ui_name="$hyperdimensional_manifold"
+        show_in_creative_mode="0"
+        hp="1000000"
+        wang_color="deadbeef"
+        durability="16"
+        solid_gravity_scale="0.5"
+    >
+    </CellData>
+</Materials>

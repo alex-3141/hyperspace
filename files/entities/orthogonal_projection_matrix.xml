@@ -1,0 +1,119 @@
+<Entity tags="hittable,teleportable_NOT,item_pickup,orthogonal_projection_matrix" >
+	<Base file="data/entities/base_item_projectile.xml" />
+	<!-- physical presence -->
+	
+	<PhysicsBodyComponent 
+		_tags="enabled_in_world"
+		uid="1" 
+		allow_sleep="1" 
+		angular_damping="0.6" 
+		linear_damping="0.2"
+		fixed_rotation="0" 
+		is_bullet="1" 
+		auto_clean="0"
+		on_death_leave_physics_body="1"
+		hax_fix_going_through_ground="1"
+		>
+	</PhysicsBodyComponent>
+	
+	<PhysicsImageShapeComponent 
+		body_id="1"
+		centered="1"
+		is_circle="1"
+		image_file="mods/hyperspace/files/entities/orthogonal_projection_matrix.png"
+		material="hyperdimensional_manifold"
+		>
+	</PhysicsImageShapeComponent>
+	
+	<PhysicsThrowableComponent
+		max_throw_speed="90"
+		throw_force_coeff="1.25"
+		min_torque="4"
+		max_torque="10"
+		>
+	</PhysicsThrowableComponent>
+
+	<VelocityComponent
+		_tags="enabled_in_world"
+		air_friction="0.8"
+		terminal_velocity="150"
+		>
+	</VelocityComponent>
+
+	<!-- item -->
+
+	<SpriteComponent
+		_tags="enabled_in_hand"
+		_enabled="0"
+		offset_x="4"
+		offset_y="4"
+		image_file="mods/hyperspace/files/entities/orthogonal_projection_matrix.png"
+		>
+	</SpriteComponent>
+
+	<ItemComponent
+		_tags="enabled_in_world"
+		item_name="$hyperspace_matrix"
+		max_child_items="0"
+		is_pickable="1"
+		is_equipable_forced="1"
+		ui_sprite="mods/hyperspace/files/entities/orthogonal_projection_matrix.png"
+		ui_description="$hyperspace_matrix"
+		preferred_inventory="QUICK"
+		>
+	</ItemComponent>
+
+	<UIInfoComponent
+		_tags="enabled_in_world"
+		name="$hyperspace_matrix">
+	</UIInfoComponent>
+	
+	<AbilityComponent
+		ui_name="$hyperspace_matrix"
+		throw_as_item="1"
+		>
+		<gun_config
+			deck_capacity="0">
+		</gun_config>
+	</AbilityComponent>
+
+	<!-- FX -->
+
+	<LightComponent
+		_tags="enabled_in_world,enabled_in_hand"
+		radius="96"
+		r="255"
+		g="255"
+		b="255"
+		fade_out_time="0.2"
+		>
+	</LightComponent>
+
+	<AudioLoopComponent
+		_tags="enabled_in_world"
+		file="data/audio/Desktop/misc.bank"
+		event_name="misc/moon/movement_loop_world"
+		set_speed_parameter="1"
+		auto_play="1"
+		play_on_component_enable="1">
+	</AudioLoopComponent>
+
+	<AudioLoopComponent
+		_tags="enabled_in_hand"
+		file="data/audio/Desktop/misc.bank"
+		event_name="misc/moon/movement_loop_hand"
+		set_speed_parameter="1"
+		auto_play="1"
+		play_on_component_enable="1">
+	</AudioLoopComponent>
+
+	<LuaComponent
+		_tags="enabled_in_world"
+        script_source_file="mods/hyperspace/files/entities/orthogonal_projection_matrix.lua"
+        vm_type="ONE_PER_COMPONENT_INSTANCE"
+		execute_every_n_frame="1"
+        execute_on_added="1"
+		>
+	</LuaComponent>
+
+</Entity>
